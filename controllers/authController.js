@@ -82,8 +82,8 @@ export const verifyMagicLink = async (req, res) => {
   try {
     const user = await User.findOne({
       magicToken: token,
-      magicTokenExpires: { $gt: new Date() },
     });
+    console.log("User", user);
 
     if (!user)
       return res
