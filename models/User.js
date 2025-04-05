@@ -6,6 +6,14 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  name: String,
+  username: {
+    type: String,
+    unique: true,
+    sparse: true,
+  },
+  bio: String,
+  avatar: String,
   magicToken: {
     type: String,
     default: null,
