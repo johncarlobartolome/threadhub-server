@@ -6,6 +6,7 @@ import { MONGO_URI, SERVER_PORT } from "./config.js";
 
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js";
+import threadRoutes from "./routes/threads.js";
 
 mongoose
   .connect(MONGO_URI)
@@ -22,6 +23,7 @@ app.use(express.json());
 
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/threads", threadRoutes);
 
 app.get("/", (req, res) => res.send("API is running..."));
 

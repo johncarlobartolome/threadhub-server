@@ -14,6 +14,8 @@ const userSchema = new mongoose.Schema({
   },
   bio: String,
   avatar: String,
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   magicToken: {
     type: String,
     default: null,
