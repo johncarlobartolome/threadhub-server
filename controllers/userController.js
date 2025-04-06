@@ -5,6 +5,7 @@ export const getProfile = async (req, res) => {
     const user = await User.findById(req.userId).select(
       "name username bio email"
     );
+    console.log(user);
     res.json({ sucess: true, user });
   } catch {
     res.status(500).json({ sucess: false, error: "Failed to get profile" });

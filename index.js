@@ -5,6 +5,7 @@ import cors from "cors";
 import { MONGO_URI, SERVER_PORT } from "./config.js";
 
 import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js";
 
 mongoose
   .connect(MONGO_URI)
@@ -19,6 +20,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => res.send("API is running..."));

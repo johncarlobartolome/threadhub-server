@@ -33,4 +33,11 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+userSchema.pre("save", function (next) {
+  if (!this.username) {
+    this.username = `user${this._id.toString()}`;
+  }
+  next();
+});
+
 export default mongoose.model("User", userSchema);
