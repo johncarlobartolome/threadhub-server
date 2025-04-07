@@ -5,7 +5,7 @@ import cors from "cors";
 import { MONGO_URI, SERVER_PORT } from "./config.js";
 
 import authRoutes from "./routes/auth.js";
-import userRoutes from "./routes/user.js";
+import userRoutes from "./routes/users.js";
 import threadRoutes from "./routes/threads.js";
 
 mongoose
@@ -21,7 +21,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/user", userRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/threads", threadRoutes);
 
