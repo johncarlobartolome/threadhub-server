@@ -1,8 +1,10 @@
 import Thread from "../models/Thread.js";
 
 export const createThread = async (req, res) => {
+  console.log(req.body);
   const { userId, content, mediaUrls } = req.body;
   if (!userId || (!content && mediaUrls.length === 0)) {
+    console.log("may error");
     return res.status(400).json({ error: "Missing required fields" });
   }
 

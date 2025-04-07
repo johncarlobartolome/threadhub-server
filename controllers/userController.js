@@ -6,9 +6,9 @@ export const getProfile = async (req, res) => {
       "name username bio email"
     );
     console.log(user);
-    res.json({ sucess: true, user });
+    res.json({ success: true, user });
   } catch {
-    res.status(500).json({ sucess: false, error: "Failed to get profile" });
+    res.status(500).json({ success: false, error: "Failed to get profile" });
   }
 };
 
